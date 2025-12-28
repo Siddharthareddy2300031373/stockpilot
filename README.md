@@ -1,128 +1,49 @@
-# 🪙 StockPilot Backend
+# 📈 StockPilot – Virtual Stock Trading Simulator
 
-### 🚀 A Virtual Stock Trading Simulation App built with Spring Boot and MySQL
+StockPilot is a **full-stack virtual stock trading platform** that allows users to register, login, buy & sell mock stocks, manage portfolios, track transactions, and explore a modern trading dashboard UI.
 
-StockPilot lets users **register, login, buy & sell stocks, and track their portfolio & transactions** — simulating a real-world stock trading platform.
-This repository contains the **Spring Boot backend** APIs powering the system.
-
----
-
-## ⚙️ Tech Stack
-
-* **Backend:** Spring Boot 3.x (Java 17)
-* **Database:** MySQL
-* **ORM:** Spring Data JPA (Hibernate)
-* **Security:** Spring Security + JWT
-* **Build Tool:** Maven
-* **IDE:** Eclipse
+This project is designed for **learning real-world system design**, full-stack development, and financial application workflows.
 
 ---
 
-## 🧩 Architecture Overview
+## 🧩 Features
 
-```
-+-------------------+
-|     Frontend      | (React / Next.js - Future Integration)
-+---------+---------+
-          |
-          v
-+-------------------+
-|   Spring Boot     |
-|  (REST APIs)      |
-+-------------------+
-| AuthController    | → Register, Login (JWT)
-| StockController   | → Add, List, Update Stocks
-| PortfolioController | → Buy, Sell, View Holdings
-| TransactionController | → History of all Buy/Sell
-+-------------------+
-| Service Layer     | → Business Logic
-| Repository Layer  | → JPA Database Access
-+-------------------+
-          |
-          v
-+-------------------+
-|     MySQL DB      |
-| users, stocks,    |
-| portfolio,        |
-| transactions      |
-+-------------------+
-```
+### 🔐 Authentication
+- User registration & login
+- JWT-based authentication
+- Secure password hashing (BCrypt)
 
----
-
-## 🧱 Database Schema
-
-| Table            | Purpose                                       |
-| ---------------- | --------------------------------------------- |
-| **users**        | Stores user details (email, password, name)   |
-| **stocks**       | Stores stock name, symbol, and price          |
-| **portfolio**    | Maps users to their owned stocks & quantities |
-| **transactions** | Stores every buy/sell action with timestamp   |
-
----
-
-## 🔐 Authentication
-
-* JWT-based authentication using Spring Security
-* Passwords hashed with **BCrypt**
-* Token returned on successful login
-
----
-
-## 📡 API Endpoints
-
-### 🧟 User Auth
-
-| Method | Endpoint             | Description             |
-| ------ | -------------------- | ----------------------- |
-| `POST` | `/api/auth/register` | Register new user       |
-| `POST` | `/api/auth/login`    | Login and get JWT token |
-
----
-
-### 📈 Stocks
-
-| Method | Endpoint                                | Description        |
-| ------ | --------------------------------------- | ------------------ |
-| `GET`  | `/api/stocks`                           | Get all stocks     |
-| `POST` | `/api/stocks`                           | Add a new stock    |
-| `PUT`  | `/api/stocks/{symbol}?price={newPrice}` | Update stock price |
-
----
-
-### 💼 Portfolio
-
-| Method | Endpoint                 | Description                  |
-| ------ | ------------------------ | ---------------------------- |
-| `POST` | `/api/portfolio/buy`     | Buy a stock                  |
-| `POST` | `/api/portfolio/sell`    | Sell a stock                 |
-| `GET`  | `/api/portfolio/{email}` | Get user’s current portfolio |
-
----
+### 💼 Portfolio Management
+- Buy & sell stocks
+- Track holdings and quantities
+- View profit & loss (P/L)
 
 ### 📜 Transactions
+- Complete buy/sell history
+- Timestamped records
 
-| Method | Endpoint                    | Description                             |
-| ------ | --------------------------- | --------------------------------------- |
-| `GET`  | `/api/transactions/{email}` | Get all transactions (buy/sell history) |
-
----
-
-## 🧠 Future Enhancements
-
-* ✅ JWT-based route protection (only logged-in users access portfolio)
-* 📊 Live stock data API integration (AlphaVantage / Yahoo Finance)
-* 🧮 Profit & Loss calculation
-* 🏆 Leaderboard for top traders
-* 📈 Chart analytics on frontend
+### 📊 Stocks
+- Add & update stocks
+- View all available stocks
 
 ---
 
-## 💻 Running Locally
+## 🚀 Tech Stack
 
-### 1️⃣ Clone the repo
+### Backend
+- **Spring Boot 3.x (Java 17)**
+- Spring Data JPA (Hibernate)
+- Spring Security + JWT
+- MySQL
+- Maven
 
-```bash
-git clone https://github.com/soumikadevarakonda/StockPilot-BE.git
-cd StockPilot-BE
-```
+### Frontend
+- **React (Vite)**
+- JavaScript
+- Fetch API / Axios (optional)
+- Modern component-based UI
+
+---
+
+## 🧱 Project Structure
+
